@@ -1,0 +1,10 @@
+{
+  "name": "library-study-lab-javascript",
+  "version": "0.1.0",
+  "private": true,
+  "description": "JavaScript study environment for the Library Study Lab",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test"
+  }
+}
