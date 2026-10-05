@@ -183,3 +183,79 @@ console.log("Catalog is empty:", catalogIsEmpty);
 console.log("Can borrow book:", canBorrowBook);
 console.log("Has activity:", hasActivity);
 console.log("No books available:", noBooksAvailable);
+
+console.log("\n--- Conditionals and Loops Lab ---");
+
+if (availableBooks === 0) {
+  console.log("Library is empty.");
+} else if (availableBooks <= 2) {
+  console.log("Few books available.");
+} else {
+  console.log("Many books available.");
+}
+
+const availabilityMessage =
+  availableBooks > 0
+    ? "Books are available for borrowing."
+    : "No books are available for borrowing.";
+
+console.log("Availability message:", availabilityMessage);
+
+const selectedCategory = "fiction";
+
+switch (selectedCategory) {
+  case "fiction":
+    console.log("Selected category: Fiction");
+    break;
+
+  case "history":
+    console.log("Selected category: History");
+    break;
+
+  default:
+    console.log("Selected category: Other");
+}
+
+console.log("\n--- For Loop ---");
+
+for (let index = 0; index < expandedCatalog.length; index++) {
+  console.log(index, expandedCatalog[index]);
+}
+
+console.log("\n--- While Loop ---");
+
+let remainingReturns = 3;
+
+while (remainingReturns > 0) {
+  console.log("Remaining returns:", remainingReturns);
+  remainingReturns--;
+}
+
+console.log("Remaining returns after loop:", remainingReturns);
+
+console.log("\n--- Do While Loop ---");
+
+let overdueBooks = 0;
+
+do {
+  console.log("Checking overdue books...");
+  console.log("Overdue books:", overdueBooks);
+} while (overdueBooks > 0);
+
+console.log("\n--- For...of Loop ---");
+
+for (const book of expandedCatalog) {
+  console.log("Book:", book);
+}
+
+console.log("\n--- For...in Loop ---");
+
+const selectedBook = {
+  title: "Duna",
+  author: "Frank Herbert",
+  year: 1965
+};
+
+for (const property in selectedBook) {
+  console.log(property, "=", selectedBook[property]);
+}
