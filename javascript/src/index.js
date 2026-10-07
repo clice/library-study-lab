@@ -259,3 +259,120 @@ const selectedBook = {
 for (const property in selectedBook) {
   console.log(property, "=", selectedBook[property]);
 }
+
+console.log("\n--- Functions Lab ---");
+
+// Function declaration: this call works before the declaration because of hoisting.
+console.log("Hoisted catalog size:", getCatalogSize(expandedCatalog));
+
+function getCatalogSize(catalog) {
+  return catalog.length;
+}
+
+function calculateAvailableBooks(totalBooks, borrowed, returned) {
+  return totalBooks - borrowed + returned;
+}
+
+const calculatedAvailableBooks = calculateAvailableBooks(
+  expandedCatalog.length,
+  borrowedBooks,
+  returnedBooks
+);
+
+console.log("Calculated available books:", calculatedAvailableBooks);
+
+// Function expression: the function is stored in a variable.
+const isBookAvailable = function (quantity) {
+  return quantity > 0;
+};
+
+console.log(
+  "Book availability check:",
+  isBookAvailable(calculatedAvailableBooks)
+);
+
+// Named function expression with recursion.
+const factorial = function calculateFactorial(number) {
+  if (number <= 1) {
+    return 1;
+  }
+
+  return number * calculateFactorial(number - 1);
+};
+
+console.log("Factorial of 5:", factorial(5));
+
+// Arrow function without parameters.
+const getLibraryGreeting = () => "Welcome to the Library Study Lab.";
+
+console.log("Library greeting:", getLibraryGreeting());
+
+// Arrow function with one parameter.
+const formatBookTitle = title => title.toUpperCase();
+
+console.log("Formatted title:", formatBookTitle("Duna"));
+
+// Arrow function with multiple parameters.
+const buildBookLabel = (title, author) => `${title} — ${author}`;
+
+console.log(
+  "Book label:",
+  buildBookLabel("Duna", "Frank Herbert")
+);
+
+// Arrow function with multiple instructions.
+const calculateLoanBalance = (currentBooks, borrowed, returned) => {
+  const afterBorrowing = currentBooks - borrowed;
+  const finalBalance = afterBorrowing + returned;
+
+  return finalBalance;
+};
+
+console.log(
+  "Loan balance:",
+  calculateLoanBalance(expandedCatalog.length, borrowedBooks, returnedBooks)
+);
+
+// Returning an object directly from an arrow function.
+const createBookRecord = (title, author, year) => ({
+  title,
+  author,
+  year,
+  available: true
+});
+
+const functionBookRecord = createBookRecord(
+  "Duna",
+  "Frank Herbert",
+  1965
+);
+
+console.log("Book record:", functionBookRecord);
+
+// Constructor function.
+function StudyBook(title, author) {
+  this.title = title;
+  this.author = author;
+
+  this.describe = function () {
+    return `${this.title} by ${this.author}`;
+  };
+}
+
+const studyBook1 = new StudyBook("Duna", "Frank Herbert");
+const studyBook2 = new StudyBook("Frankenstein", "Mary Shelley");
+
+console.log("Study book 1:", studyBook1.describe());
+console.log("Study book 2:", studyBook2.describe());
+
+// Async function. Promise.resolve simulates data that could arrive later.
+async function showAsyncLibrarySummary() {
+  const summary = await Promise.resolve({
+    name: libraryName,
+    totalBooks: expandedCatalog.length
+  });
+
+  console.log("Async library summary:", summary);
+}
+
+showAsyncLibrarySummary();
