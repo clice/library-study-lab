@@ -376,3 +376,61 @@ async function showAsyncLibrarySummary() {
 }
 
 showAsyncLibrarySummary();
+
+console.log("\n--- Built-in Functions Lab ---");
+
+// String methods.
+const labBookTitle = "Frankenstein";
+
+console.log("Substring:", labBookTitle.substring(0, 5));
+console.log("Uppercase:", labBookTitle.toUpperCase());
+console.log("Lowercase:", labBookTitle.toLowerCase());
+console.log("Index of 'stein':", labBookTitle.indexOf("stein"));
+console.log("Character at index 0:", labBookTitle.charAt(0));
+console.log("Replaced title:", "O Hobbit".replace("O ", ""));
+
+// Math methods.
+console.log("Highest rating:", Math.max(4.2, 4.8, 3.9));
+console.log("Lowest rating:", Math.min(4.2, 4.8, 3.9));
+console.log("Absolute balance:", Math.abs(-3));
+console.log("Rounded rating:", Math.round(4.6));
+console.log("Floor rating:", Math.floor(4.6));
+console.log("Ceil rating:", Math.ceil(4.1));
+
+// Date methods. A fixed date keeps the lab output predictable.
+const studyDate = new Date(2026, 9, 7, 14, 30);
+
+console.log("Year:", studyDate.getFullYear());
+console.log("Month index:", studyDate.getMonth());
+console.log("Day of month:", studyDate.getDate());
+console.log("Day of week:", studyDate.getDay());
+console.log("Hour:", studyDate.getHours());
+console.log("Minutes:", studyDate.getMinutes());
+
+// Error handling based on the pattern used in the lesson.
+function addBookCounts(x, y) {
+  if (typeof x !== "number" || typeof y !== "number") {
+    throw new ReferenceError("x and y must be numbers.");
+  }
+
+  return x + y;
+}
+
+try {
+  console.log("Valid book count:", addBookCounts(2, 3));
+  console.log("Invalid book count:", addBookCounts("2", 3));
+} catch (error) {
+  console.log("Caught error:", error.message);
+} finally {
+  console.log("Book count validation finished.");
+}
+
+// JavaScript division by zero does not throw by itself.
+try {
+  const divisionByZeroResult = 10 / 0;
+  console.log("10 / 0:", divisionByZeroResult);
+} catch (error) {
+  console.log("Division error:", error.message);
+} finally {
+  console.log("Division test finished.");
+}
