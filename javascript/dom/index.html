@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Study Lab — DOM</title>
+</head>
+<body>
+  <h1>Library Study Lab — DOM</h1>
+
+  <section>
+    <h2>getElementById</h2>
+    <p id="status-text">Library status: waiting for update.</p>
+    <button onclick="changeTextById()">Change status text</button>
+  </section>
+
+  <section>
+    <h2>getElementsByClassName</h2>
+    <div class="featured-book">Duna</div>
+    <div class="featured-book">Frankenstein</div>
+    <div class="featured-book">O Hobbit</div>
+    <button onclick="changeStyleByClass()">Change featured books style</button>
+  </section>
+
+  <section>
+    <h2>getElementsByTagName</h2>
+    <ul>
+      <li>Drácula</li>
+      <li>Fundação</li>
+      <li>Duna</li>
+    </ul>
+    <button onclick="changeTextByTag()">Change list item text</button>
+  </section>
+
+  <section>
+    <h2>querySelector</h2>
+    <div class="query-book">First query book</div>
+    <div class="query-book">Second query book</div>
+    <div class="query-book">Third query book</div>
+    <button onclick="changeFirstWithQuerySelector()">Change first match</button>
+  </section>
+
+  <section>
+    <h2>querySelectorAll</h2>
+    <button onclick="changeAllWithQuerySelectorAll()">Change all matches</button>
+  </section>
+
+  <script src="./script.js"></script>
+</body>
+</html>
